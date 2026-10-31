@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1ece1">
+    <meta name="description"
+        content="Портфолио Анастасии — AI360, проекты в машинном обучении, исследования и IT-сообщество.">
+    <title>Anastasiia — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Manrope:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --paper: #f1ece1;
+            --ink: #594d4e;
+            --muted: #8c8080;
+            --wine: #7b1633;
+            --line: #cfc6bc;
+            --cream: #f8f5ee
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: Manrope, Arial, sans-serif
+        }
+
+        a {
+            color: inherit
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        button {
+            font: inherit
+        }
+
+        ::selection {
+            background: #7b163344
+        }
+
+        .wrap {
+            max-width: 1240px;
+            margin: auto;
+            padding: 0 42px
+        }
+
+        .eyebrow {
+            font: 600 11px Manrope;
+            letter-spacing: .24em;
+            text-transform: uppercase
+        }
+
+        .display {
+            font-family: Oswald, 'Arial Narrow', sans-serif;
+            font-weight: 500;
+            line-height: .94;
+            letter-spacing: -.035em;
+            text-transform: uppercase
+        }
+
+        .script {
+            font-family: 'Bad Script', cursive;
+            color: var(--wine);
+            font-size: clamp(25px, 4vw, 55px)
+        }
+
+        header {
+            position: fixed;
+            z-index: 20;
+            inset: 0 0 auto;
+            background: #f1ece1ee;
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #cfc6bc80
+        }
+
+        .head {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            justify-content: space-between
+        }
+
+        .logo {
+            font: 500 29px Oswald;
+            text-decoration: none;
+            letter-spacing: -.04em
+        }
+
+        .logo em {
+            color: var(--wine);
+            font-style: normal
+        }
+
+        .nav {
+            display: flex;
+            gap: 25px;
+            align-items: center
+        }
+
+        .nav a {
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            transition: color .2s
+        }
+
+        .nav a:hover {
+            color: var(--wine)
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: 0;
+            font-size: 25px
+        }
+
+        .round {
+            border: 1px solid var(--ink);
+            border-radius: 99px;
+            padding: 13px 22px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            gap: 14px;
+            align-items: center;
+            transition: .25s
+        }
+
+        .round:hover {
+            background: var(--ink);
+            color: var(--paper)
+        }
+
+        .round.fill {
+            background: var(--ink);
+            color: var(--paper)
+        }
+
+        .round.fill:hover {
+            background: var(--wine);
+            border-color: var(--wine)
+        }
+
+        .hero {
+            padding-top: 125px;
+            position: relative;
+            overflow: hidden;
+
+            background-image:
+                linear-gradient(
+                    rgba(241, 236, 225, 0.4),
+                    rgba(241, 236, 225, 0.4)
+                ),
+                url('assets/p01_00.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-inner {
+            min-height: 680px;
+            display: grid;
+            grid-template-columns: 1.13fr .87fr;
+            gap: 40px;
+            align-items: center;
+            position: relative
+        }
+
+        .hero h1 {
+            font-size: clamp(84px, 12vw, 185px);
+            margin: 30px 0 20px
+        }
+
+        .hero h1 span {
+            display: block
+        }
+
+        .hero h1 span:last-child {
+            color: var(--wine)
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            max-width: 540px;
+            line-height: 1.85
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin-top: 0px
+        }
+
+        .hero-photo {
+            height: 615px;
+            position: relative;
+            align-self: end
+        }
+
+
+        .hero-photo img.person {
+            height: 94%;
+            width: 88%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            object-fit: contain;
+            object-position: center bottom;
+            filter: drop-shadow(0 14px 20px #53473d22)
+        }
+
+        .hero-photo .lace {
+            position: absolute;
+            width: 175px;
+            left: -22px;
+            top: -45px;
+            opacity: .62;
+            mix-blend-mode: multiply
+        }
+
+        .hero-photo .tag {
+            position: absolute;
+            right: 0;
+            bottom: 37px;
+            background: #faf7f0ed;
+            padding: 12px 22px;
+            transform: rotate(-4deg);
+            font-family: 'Bad Script';
+            font-size: 22px
+        }
+
+        .ticker {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+
+            border-block: 1px solid var(--line);
+            padding: 18px 0;
+            white-space: nowrap;
+
+            font: 400 17px Oswald;
+            letter-spacing: .14em;
+        }
+
+        .ticker span {
+            padding: 0;
+        }
+
+        .section {
+            padding: 110px 0;
+            scroll-margin-top: 85px
+        }
+
+        .section-title {
+            font-size: clamp(63px, 9vw, 126px);
+            margin: 12px 0 46px
+        }
+
+        .section-lead {
+            max-width: 630px;
+            font-size: 16px;
+            line-height: 1.85
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px
+        }
+
+        .section-head p {
+            max-width: 370px;
+            line-height: 1.75;
+            margin-bottom: 43px
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            margin-top: 48px
+        }
+
+        .fact {
+            padding: 27px 23px;
+            border-right: 1px solid var(--line)
+        }
+
+        .fact:first-child {
+            padding-left: 0
+        }
+
+        .fact:last-child {
+            border: 0
+        }
+
+        .fact b {
+            font: 500 46px Oswald
+        }
+
+        .fact p {
+            font-size: 12px;
+            line-height: 1.6;
+            max-width: 180px
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 530px;
+            background: #ddd5c7;
+            position: relative;
+            overflow: hidden
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-image:after {
+            content: 'ABOUT MYSELF';
+            position: absolute;
+            right: 17px;
+            top: 20px;
+            font: 500 44px Oswald;
+            color: #f1ece1;
+            writing-mode: vertical-rl
+        }
+
+        .about-copy p {
+            font-size: 16px;
+            line-height: 2
+        }
+
+        .about-copy .script {
+            display: block;
+            margin: 5px 0 23px;
+            transform: rotate(-5deg)
+        }
+
+        .skill-groups {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px
+        }
+
+        .skill {
+            border: 1px solid var(--line);
+            padding: 35px;
+            background: #f8f5ee75
+        }
+
+        .skill h3 {
+            font: 500 38px Oswald;
+            margin: 0 0 24px
+        }
+
+        .skill .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .tags span {
+            padding: 11px 15px;
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            font-size: 12px
+        }
+
+        .projects {
+            background: #e9e1d5
+        }
+
+        .filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px
+        }
+
+        .filter button {
+            background: transparent;
+            border: 1px solid #bbb0a7;
+            border-radius: 30px;
+            color: var(--ink);
+            padding: 11px 17px;
+            cursor: pointer;
+            font-size: 12px
+        }
+
+        .filter button.active,
+        .filter button:hover {
+            background: var(--ink);
+            color: var(--paper)
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 19px
+        }
+
+        .project {
+            background: var(--cream);
+            border: 1px solid #d8cfc4;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column
+        }
+
+        .project .cover {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+            background: #c6b7aa
+        }
+
+        .project .cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s
+        }
+
+        .project:hover .cover img {
+            transform: scale(1.06)
+        }
+
+        .project .cover:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, #1e141b55, transparent 55%)
+        }
+
+        .project .num {
+            position: absolute;
+            z-index: 1;
+            left: 19px;
+            top: 15px;
+            color: white;
+            font: 500 13px Oswald
+        }
+
+        .project .body {
+            padding: 25px;
+            display: flex;
+            flex: 1;
+            flex-direction: column
+        }
+
+        .project h3 {
+            font: 500 35px Oswald;
+            text-transform: uppercase;
+            margin: 5px 0 12px
+        }
+
+        .project p {
+            font-size: 13px;
+            line-height: 1.8;
+            flex: 1
+        }
+
+        .project small {
+            letter-spacing: .16em;
+            font-size: 10px;
+            color: var(--wine);
+            font-weight: 700
+        }
+
+        .project button {
+            cursor: pointer;
+            margin-top: 15px;
+            align-self: start;
+            background: none;
+            border: 0;
+            border-bottom: 1px solid var(--wine);
+            color: var(--wine);
+            font-size: 12px;
+            padding: 0 0 5px
+        }
+
+        .achievement {
+            margin-top: 25px;
+            padding: 19px 23px;
+            background: #711b31;
+            color: white;
+            font: 500 18px Oswald;
+            letter-spacing: .02em
+        }
+
+        .timeline {
+            border-top: 1px solid var(--line)
+        }
+
+        .event {
+            display: grid;
+            grid-template-columns: 90px 1fr 150px;
+            gap: 20px;
+            align-items: baseline;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .event .date {
+            font: 500 25px Oswald;
+            color: var(--wine)
+        }
+
+        .event h3 {
+            font-size: 17px;
+            margin: 0;
+            line-height: 1.5
+        }
+
+        .event .place {
+            font-size: 12px;
+            color: var(--muted);
+            text-align: right
+        }
+
+        .community {
+            background: #e6ded2;
+            overflow: hidden
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        .community-photo {
+            transform: rotate(3deg);
+            border: 12px solid white;
+            box-shadow: 0 20px 50px #40332928
+        }
+
+        .community-photo img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover
+        }
+
+        .community-item {
+            padding: 19px 0;
+            border-bottom: 1px solid #bdb0a4;
+            font-size: 16px
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            cursor: zoom-in;
+            transition: filter .2s
+        }
+
+        .gallery img:hover {
+            filter: sepia(.2) brightness(.9)
+        }
+
+        .gallery img:nth-child(3n) {
+            height: 280px
+        }
+
+        .contact {
+            position: relative;
+            background: #ded5ca;
+            overflow: hidden
+        }
+
+        .contact:after {
+            content: '';
+            position: absolute;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            width: 30%;
+            height: 100%;
+
+            background-image: url('assets/p19_00.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .contact h2 {
+            font-size: clamp(65px, 9vw, 130px);
+            margin: 5px 0 40px
+        }
+
+        .contacts {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 19px
+        }
+
+        .contacts a {
+            font: 400 clamp(18px, 2vw, 25px) Oswald;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 3px
+        }
+
+        .contacts a:hover {
+            color: var(--wine)
+        }
+
+        footer {
+            padding: 24px 0;
+            border-top: 1px solid var(--line);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .top {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            z-index: 19;
+            background: var(--ink);
+            color: white;
+            border: 0;
+            width: 47px;
+            height: 47px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none
+        }
+
+        .top.show {
+            display: block
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background: #171015b8;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        .modal.open {
+            display: flex
+        }
+
+        .modal-panel {
+            background: var(--paper);
+            max-width: 760px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: auto;
+            position: relative
+        }
+
+        .modal-panel>img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover
+        }
+
+        .modal-content {
+            padding: 32px
+        }
+
+        .modal-content h2 {
+            font: 500 50px Oswald;
+            margin: 10px 0
+        }
+
+        .modal-content p {
+            line-height: 1.85
+        }
+
+        .close {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            border: 0;
+            background: var(--paper);
+            font-size: 26px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer
+        }
+
+        .lightbox img {
+            max-width: 92vw;
+            max-height: 90vh;
+            object-fit: contain
+        }
+
+        .lightbox {
+            cursor: zoom-out
+        }
+
+        .deco {
+            font-family: 'Bad Script';
+            color: var(--wine)
+        }
+
+        @media(max-width:980px) {
+            .nav {
+                gap: 12px
+            }
+
+            .nav a {
+                font-size: 11px
+            }
+
+            .hero-inner {
+                min-height: 570px
+            }
+
+            .hero-photo {
+                height: 500px
+            }
+
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .gallery {
+                grid-template-columns: repeat(3, 1fr)
+            }
+        }
+
+        @media(max-width:720px) {
+            .wrap {
+                padding: 0 22px
+            }
+
+            .head {
+                height: 66px
+            }
+
+            .mobile-toggle {
+                display: block
+            }
+
+            .nav {
+                display: none;
+                position: absolute;
+                top: 66px;
+                left: 0;
+                right: 0;
+                background: var(--paper);
+                padding: 25px;
+                flex-direction: column;
+                align-items: start;
+                border-bottom: 1px solid var(--line)
+            }
+
+            .nav.open {
+                display: flex
+            }
+
+            .hero {
+                padding-top: 72px
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 10px
+            }
+
+            .hero h1 {
+                font-size: clamp(78px, 17vw, 120px);
+                margin: 20px 0
+            }
+
+            .hero-photo {
+                height: 420px;
+                width: 90%;
+                margin: auto
+            }
+
+            .hero-photo .lace {
+                width: 100px
+            }
+
+            .section {
+                padding: 70px 0
+            }
+
+            .about-grid,
+            .community-grid {
+                grid-template-columns: 1fr;
+                gap: 25px
+            }
+
+            .about-image {
+                height: 390px
+            }
+
+            .section-title {
+                font-size: clamp(55px, 12vw, 85px);
+                margin-bottom: 25px
+            }
+
+            .section-head {
+                display: block
+            }
+
+            .section-head p {
+                margin-bottom: 25px
+            }
+
+            .facts {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .fact:nth-child(2) {
+                border-right: 0
+            }
+
+            .fact:nth-child(-n+2) {
+                border-bottom: 1px solid var(--line)
+            }
+
+            .skill-groups {
+                grid-template-columns: 1fr
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr
+            }
+
+            .project .cover {
+                height: 220px
+            }
+
+            .event {
+                grid-template-columns: 65px 1fr;
+                gap: 12px
+            }
+
+            .event .place {
+                grid-column: 2;
+                text-align: left
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .gallery img,
+            .gallery img:nth-child(3n) {
+                height: 170px
+            }
+
+            .contact h2 {
+                font-size: 70px
+            }
+
+            footer {
+                flex-direction: column
+            }
+
+            .modal-panel>img {
+                height: 200px
+            }
+        }
+        /* Адаптация раздела "Обо мне" */
+        @media (max-width: 1100px) {
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .about-image {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .about-image img {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+
+            .about-copy {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .about-copy p {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+        }
+        /* Адаптация бегущей полосы */
+        .ticker {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px 45px;
+        }
+
+        .ticker span {
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Планшеты */
+        @media (max-width: 1000px) {
+            .ticker {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px 20px;
+                padding: 18px 20px;
+                white-space: normal;
+            }
+
+            .ticker span {
+                font-size: 16px;
+            }
+        }
+
+        /* Телефоны */
+        @media (max-width: 600px) {
+            .ticker {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                padding: 16px 12px;
+                white-space: normal;
+                letter-spacing: 0.06em;
+            }
+
+            .ticker span {
+                font-size: 12px;
+                line-height: 1.5;
+                overflow-wrap: normal;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrap head"><a class="logo" href="#home">ANASTASIIA<em>’S</em></a>
+            <nav class="nav" id="nav"><a href="#about">ОБО МНЕ</a><a href="#skills">НАВЫКИ</a><a href="#experience">ОПЫТ</a><a
+                    href="#projects">ПРОЕКТЫ</a><a href="#community">COMMUNITY</a><a
+                    href="#gallery">ФОТО</a><a href="#contact">КОНТАКТЫ</a></nav><button class="mobile-toggle" id="menu"
+                aria-label="Открыть меню">☰</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <div class="wrap hero-inner">
+                <div>
+                    <div class="eyebrow">AI / MACHINE LEARNING / DIGITAL PRODUCTS</div>
+                    <div class="script">IT-открытие года</div>
+                    <h1 class="display"><span>ANASTASIIA</span><span>PORTFOLIO</span></h1>
+                    <p class="hero-desc">Привет! Я Настя, студентка AI360 Университета Иннополис. Исследую искусственный
+                        интеллект, разрабатываю цифровые продукты и превращаю идеи в работающие проекты.</p>
+                    <div class="hero-buttons"><a class="round fill" href="#projects">СМОТРЕТЬ ПРОЕКТЫ ↗</a><a
+                            class="round" href="#contact">СВЯЗАТЬСЯ ↗</a></div>
+                </div>
+                <div class="hero-photo"><img class="person"
+                        src="assets/p01_01.webp" alt="Анастасия" />
+                    <div class="tag">about myself ♡</div>
+                </div>
+            </div>
+        </section>
+        <div class="ticker"><span>✳ ARTIFICIAL INTELLIGENCE</span><span>✳ INNOPOLIS UNIVERSITY</span><span>✳ RESEARCH &
+                PROJECTS</span><span>✳ AI360</span></div>
+        <section class="section" id="about">
+            <div class="wrap"><span class="eyebrow">01 / ABOUT MYSELF</span>
+                <h2 class="display section-title">НЕМНОГО ОБО МНЕ</h2>
+                <div class="about-grid">
+                    <div class="about-image"><img src="assets/about_me.png" alt="Анастасия — фотография" loading="lazy">
+                    </div>
+                    <div class="about-copy"><span class="script">Всем привет!</span>
+                        <p>Меня зовут Настя, я студентка второго курса программы AI360 в Университете Иннополис. Меня
+                            интересуют программирование, искусственный интеллект, разработка цифровых продуктов и работа
+                            над проектами, которые решают реальные задачи на стыке разных сфер.</p>
+                        <p>Люблю учиться новому, исследовать сложные задачи и превращать идеи в работающие решения. Для
+                            меня важно не только развивать технические навыки, но и уметь работать в команде, брать на
+                            себя ответственность и доводить начатое до результата.</p>
+                        <div class="facts">
+                            <div class="fact"><b>AI360</b>
+                                <p>Университет Иннополис</p>
+                            </div>
+                            <div class="fact"><b>2</b>
+                                <p>курс обучения</p>
+                            </div>
+                            <div class="fact"><b>2026</b>
+                                <p>Научные и проектные школы</p>
+                            </div>
+                            <div class="fact"><b>IT</b>
+                                <p>Исследования и продукты</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="skills">
+            <div class="wrap"><span class="eyebrow">02 / SKILLS</span>
+                <div class="section-head">
+                    <h2 class="display section-title">НАВЫКИ</h2>
+                    <p>Сочетаю технические навыки и исследовательский подход с командной работой и организацией
+                        проектов.</p>
+                </div>
+                <div class="skill-groups">
+                    <div class="skill">
+                        <h3>HARD SKILLS</h3>
+                        <div class="tags">
+                            <span>Python</span><span>NumPy</span><span>pandas</span><span>scikit-learn</span><span>PyTorch</span><span>Машинное
+                                обучение</span><span>Классификация</span><span>Регрессия</span><span>Кластеризация</span><span>Нейронные
+                                сети</span><span>CNN</span><span>NLP</span><span>Языковые модели</span></div>
+                    </div>
+                    <div class="skill">
+                        <h3>SOFT SKILLS</h3>
+                        <div class="tags"><span>Командная работа</span><span>Управление
+                                проектами</span><span>Исследовательское мышление</span><span>Публичные
+                                выступления</span><span>Коммуникация</span><span>Кросс-культурная
+                                коммуникация</span><span>Ответственность</span><span>Стратегическое мышление</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="experience">
+            <div class="wrap"><span class="eyebrow">04 / EXPERIENCE & ACHIEVEMENTS</span>
+                <div class="section-head">
+                    <h2 class="display section-title">МОЙ ОПЫТ</h2>
+                    <p>Образование, проектные школы, международные программы, олимпиады и конференции.</p>
+                </div>
+                <div class="timeline">
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Science School AI360 «От статьи к реализации» — исследование спекулятивного декодирования
+                        </h3><span class="place">Москва</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Проектная школа от Яндекса и Сбера «Данные от получения до понимания структуры»</h3><span
+                            class="place">Москва</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Beijing Institute of Technology — программа по искусственному интеллекту; проект признан
+                            лучшим</h3><span class="place">Чжухай, Китай</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Финал Международной олимпиады по финансовой безопасности — 1-е место в «Графус-баттле»</h3>
+                        <span class="place">Красноярск</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Проект "Unhooked"</h3><span class="place">Конкурсы
+                            и проекты</span>
+                    </div>
+                    <div class="event"><span class="date">2025</span>
+                        <h3>Проект "TrAIner"</h3><span class="place">Конкурсы
+                            и проекты</span>
+                    </div>
+                    <div class="event"><span class="date">2024</span>
+                        <h3>Проект "Y-STUDY"</h3><span class="place">Конкурсы
+                            и проекты</span>
+                    </div>
+                    <div class="event"><span class="date">2024</span>
+                        <h3>Игра "Путь к величию"</h3><span class="place">Конкурсы
+                            и проекты</span>
+                    </div>
+                    <div class="event"><span class="date">2025</span>
+                        <h3>Международная конференция об искусственном интеллекте AI Journey</h3><span class="place">Москва</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Международный форум Digital Innopolis Days</h3><span class="place">Иннополис</span>
+                    </div>
+                    <div class="event"><span class="date">2025</span>
+                        <h3>Международный форум Digital Innopolis Days</h3><span class="place">Иннополис</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Межрегиональная IT-конференци Merge</h3><span class="place">Иннополис</span>
+                    </div>
+                    <div class="event"><span class="date">2026</span>
+                        <h3>Всероссийский образовательный форум ТИМ "Бирюса", смена "Наука и технологии"</h3><span class="place">Красноярск</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section projects" id="projects">
+            <div class="wrap"><span class="eyebrow">03 / SELECTED WORK</span>
+                <div class="section-head">
+                    <h2 class="display section-title">МОИ ПРОЕКТЫ</h2>
+                    <p>Исследования, образовательные продукты, ML и собственные разработки — от концепции до результата.
+                    </p>
+                </div>
+                <div class="filter"><button data-filter="all" class="active">ВСЕ ПРОЕКТЫ</button><button
+                        data-filter="research">ИССЛЕДОВАНИЯ</button><button
+                        data-filter="product">ПРОДУКТЫ</button></div>
+                <div class="project-grid" id="project-grid"></div>
+                <div class="achievement">✦ UNHOOKED — ПРОЕКТ ВЫИГРАЛ 150 000 ₽</div>
+            </div>
+        </section>
+        <section class="section community" id="community">
+            <div class="wrap"><span class="eyebrow">05 / COMMUNITY GATEWAY</span>
+                <h2 class="display section-title">COMMUNITY<br>GATEWAY</h2>
+                <div class="community-grid">
+                    <div>
+                        <p class="section-lead">Мне важно быть частью сообщества, делиться опытом и помогать другим
+                            находить возможности в IT.</p>
+                        <div class="community-item">✧ Бадди AI360</div>
+                        <div class="community-item">✧ Амбассадор Университета Иннополис</div>
+                        <div class="community-item">✧ Валидация гипотез команды «Содружества»</div>
+                        <div class="community-item">✧ Тьютор у первого курса</div>
+                    </div>
+                    <div class="community-photo"><img src="assets/buddy.jpg" alt="Команда сообщества AI360"
+                            loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="gallery">
+            <div class="wrap"><span class="eyebrow">06 / MOMENTS</span>
+                <div class="section-head">
+                    <h2 class="display section-title">МОМЕНТЫ</h2>
+                    <p>Кадры из проектных школ, конференций, учёбы и жизни сообщества.</p>
+                </div>
+                <div class="gallery" id="gallery-grid"></div>
+            </div>
+        </section>
+        <section class="section contact" id="contact">
+            <div class="wrap"><span class="eyebrow">07 / CONTACT</span>
+                <h2 class="display">ДАВАЙТЕ<br>ЗНАКОМИТЬСЯ</h2>
+                <p class="section-lead">Открыта к интересным проектам, исследованиям и новым знакомствам. Буду рада
+                    обсудить идеи и сотрудничество.</p>
+                <div class="contacts"><a href="https://t.me/n_a_s_t_y_a_00" target="_blank" rel="noopener">TELEGRAM /
+                        @n_a_s_t_y_a_00 ↗</a><a href="mailto:a.kuznechenko@innopolis.university">EMAIL /
+                        a.kuznechenko@innopolis.university ↗</a><a href="https://github.com/vVailen" target="_blank"
+                        rel="noopener">GITHUB / @vVailen ↗</a></div>
+                <p class="script" style="margin-top:55px">see you soon!</p>
+            </div>
+        </section>
+    </main>
+    <div class="wrap">
+        <footer><span>© 2026 ANASTASIIA’S PORTFOLIO</span></footer>
+    </div><button class="top" id="top" aria-label="Наверх">↑</button>
+    <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-label="Описание проекта">
+        <div class="modal-panel"><button class="close" id="close" aria-label="Закрыть">×</button><img id="modal-image"
+                alt="">
+            <div class="modal-content"><small class="eyebrow" id="modal-category"></small>
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <p id="modal-result" style="font-weight:700;color:var(--wine)"></p>
+            </div>
+        </div>
+    </div>
+    <div class="modal lightbox" id="lightbox" role="dialog" aria-label="Просмотр фотографии"><img
+            alt="Увеличенная фотография"></div>
+    <script>
+        const projects = [{name: 'SCIENCE SCHOOL AI360', type: 'research', image: 'science_school.jpg', intro: 'Исследование спекулятивного декодирования для ускорения генерации больших языковых моделей.', description: 'Вместе с командой исследовала метод ускорения генерации больших языковых моделей. Реализовали алгоритм по научной статье, провели эксперименты на четырёх доменах: код, математика, общие тексты и Википедия. Изучили влияние дообучения черновой модели на результаты.', result: 'Результат: исследование и научный постер.'}, {name: 'UNHOOKED', type: 'product', image: 'Unhooked2.png', intro: 'Интерактивный тренажёр финансовой безопасности с симуляциями мошеннических сценариев.', description: 'Платформа для обучения распознаванию мошенничества через симуляции фишинговых сайтов, звонков с социальной инженерией и опасных договоров. Практические кейсы, разбор теории и оценка прогресса по пяти навыкам финансовой безопасности.', result: 'Достижение: проект выиграл 150 000 ₽.'}, {name: 'NYC TAXI / ML', type: 'research', image: 'p08_03.webp', intro: 'Анализ более 7,6 млн поездок такси и ML-прогнозирование спроса, времени и стоимости.', description: 'В проектной школе исследовали спрос на такси в Нью-Йорке. Анализировали маршруты, районы и поездки, разрабатывали ML-модели для прогноза стоимости, времени, спроса и выручки.', result: 'Результат: точность выбора самого прибыльного района — 91,7%.'}, {name: 'Y-STUDY', type: 'product', image: 'YStudy.png', intro: 'Концепция образовательной платформы на основе искусственного интеллекта.', description: 'Разработала концепцию платформы для автоматизации проверки школьных работ с помощью искусственного интеллекта, снижения нагрузки на учителей и помощи ученикам в работе над ошибками.', result: 'Достижение: проект стал победителем конкурса.'}, {name: 'ПЁТР I: ПУТЬ К ВЕЛИЧИЮ', type: 'product', image: 'buhf.png', intro: 'Образовательная 2D-игра на Unity и C# с элементами стратегии и RPG.', description: 'Самостоятельно разработала игру, объединяющую историю, стратегию и RPG. Игрок развивает государство, принимает решения и знакомится с эпохой Петра I через интерактивные задания.', result: 'Достижение: проект стал победителем.'}, {name: 'TRAINER', type: 'product', image: 'TrAIner.png', intro: 'Концепция умного тренера с ИИ и дополненной реальностью.', description: 'Концепция мобильного приложения для персонализированных тренировок. Компьютерное зрение для анализа техники, планы питания с учётом целей и бюджета, поиск спортивных событий и единомышленников.', result: 'Результат: концепция мобильного продукта.'}];
+        const grid = document.getElementById('project-grid'); function render(filter = 'all') {grid.innerHTML = ''; projects.filter(x => filter === 'all' || x.type === filter).forEach((p, i) => {const e = document.createElement('article'); e.className = 'project'; e.innerHTML = `<div class="cover"><img src="assets/${p.image}" alt="${p.name}" loading="lazy"><span class="num">0${i + 1} / PROJECT</span></div><div class="body"><small>${p.type === 'research' ? 'RESEARCH / ML' : p.type === 'game' ? 'GAME DEVELOPMENT' : 'DIGITAL PRODUCT'}</small><h3>${p.name}</h3><p>${p.intro}</p><button type="button">ПОДРОБНЕЕ ↗</button></div>`; e.querySelector('button').onclick = () => showProject(p); grid.append(e)})} render(); document.querySelectorAll('[data-filter]').forEach(b => b.onclick = () => {document.querySelectorAll('[data-filter]').forEach(x => x.classList.remove('active')); b.classList.add('active'); render(b.dataset.filter)}); const modal = document.getElementById('project-modal'); function showProject(p) {document.getElementById('modal-image').src = 'assets/' + p.image; document.getElementById('modal-title').textContent = p.name; document.getElementById('modal-category').textContent = p.type === 'research' ? 'RESEARCH / ML' : p.type === 'game' ? 'GAME DEVELOPMENT' : 'DIGITAL PRODUCT'; document.getElementById('modal-description').textContent = p.description; document.getElementById('modal-result').textContent = p.result; modal.classList.add('open'); document.body.style.overflow = 'hidden'} function closeModal() {modal.classList.remove('open'); document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''} document.getElementById('close').onclick = closeModal; modal.addEventListener('click', e => {if (e.target === modal) closeModal()}); document.addEventListener('keydown', e => {if (e.key === 'Escape') closeModal()}); 
+        let photos = [
+            'moment5.jpg',
+            'moment12.jpg',
+            'moment11.jpg',
+            'moment14.jpg',
+            'moment6.jpg',
+            'moment7.jpg',
+            'moment2.jpg',
+            'moment17.jpg',
+            'moment4.jpg',
+            'moment1.jpg',
+            'moment10.jpg',
+            'moment3.jpg',
+            'moment16.jpg',
+            'moment20.jpg',
+            'moment19.jpg',
+            'moment18.jpg',
+            'moment9.jpg',
+            'moment15.jpg',
+            'moment8.jpg',
+            'moment21.jpg',]; const gallery = document.getElementById('gallery-grid'); photos.forEach((img, i) => {let e = document.createElement('img'); e.src = 'assets/' + img; e.alt = 'Фото из портфолио ' + (i + 1); e.loading = 'lazy'; e.onclick = () => {const l = document.getElementById('lightbox'); l.querySelector('img').src = e.src; l.classList.add('open'); document.body.style.overflow = 'hidden'}; gallery.append(e)}); document.getElementById('lightbox').onclick = closeModal; document.getElementById('menu').onclick = () => document.getElementById('nav').classList.toggle('open'); document.querySelectorAll('.nav a').forEach(e => e.onclick = () => document.getElementById('nav').classList.remove('open')); let topBtn = document.getElementById('top'); addEventListener('scroll', () => topBtn.classList.toggle('show', scrollY > 750), {passive: true}); topBtn.onclick = () => scrollTo({top: 0, behavior: 'smooth'});
+    </script>
+</body>
+
+</html>
